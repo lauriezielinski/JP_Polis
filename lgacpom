@@ -5,3 +5,11 @@
 git add polisgis.m
 git commit -m "Plots some features of Polis from certain GIS databases"
 git push origin master
+
+git add README.md
+git commit -m "Read me first"
+git push origin master
+
+git add lgacpom
+git commit -m "An instruction set for meaningful commit messages"
+git push origin master
