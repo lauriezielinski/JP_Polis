@@ -26,7 +26,7 @@ defval('plt',0)
 
 % Set a path beyond which the code doesn't change
 pname='/u/fjsimons/CLASSES/FRS-Cyprus/dropbox-2011/Cyprus/CyprusGIS/webGIS/';
-pname='/Users/Laurie/Documents/JP_Polis/JP_Polis/';
+pname='/Users/Laurie/Documents/JP_Polis/Data';
 
 switch wot
   case 1
