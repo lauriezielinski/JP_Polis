@@ -3,7 +3,7 @@
 # An in-repository local version of the alias gacpom with meaningful commit messages
 
 git add polisgis.m
-git commit -m "Plots some features of Polis from certain GIS databases"
+git commit -m "Plots some features of Polis Chrysochous from certain GIS databases"
 git push origin master
 
 git add README.md
