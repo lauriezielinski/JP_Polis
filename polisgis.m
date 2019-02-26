@@ -1,7 +1,7 @@
 function varargout=polisgis(wot,plt)
 % [pl,xl,yl,tl,utmzone]=POLISGIS(wot,plt)
 %
-% Plots some features of Polis from certain GIS databases
+% Plots some features of Polis Chrysochous from certain GIS databases
 % 
 % INPUT:
 %
