@@ -19,14 +19,17 @@ function varargout=polisgis(wot,plt)
 %
 % Tested on 8.3.0.532 (R2014a) and 9.0.0.341360 (R2016a)
 % 
-% Last modified by fjsimons-at-alum.mit.edu, 02/26/2019
+% Last modified by fjsimons-at-alum.mit.edu, 03/01/2019
 
 defval('wot',1)
 defval('plt',0)
 
 % Set a path beyond which the code doesn't change
-pname='/u/fjsimons/CLASSES/FRS-Cyprus/dropbox-2011/Cyprus/CyprusGIS/webGIS/';
-pname='/Users/Laurie/Documents/JP_Polis/Data';
+try
+  pname='/u/fjsimons/CLASSES/FRS-Cyprus/dropbox-2011/Cyprus/CyprusGIS/webGIS/';
+catch
+  pname='/Users/Laurie/Documents/JP_Polis/Data';
+end
 
 switch wot
   case 1
