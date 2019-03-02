@@ -10,6 +10,10 @@ git add readmag.m
 git commit -m "Reads an ASCII file with GPS locations and magnetic data from MagMap2000"
 git push origin master
 
+git add plotmag.m
+git commit -m "Plots a data matrix containing magnetic anomalies as an interpolated map"
+git push origin master
+
 git add polismag.m
 git commit -m "Makes a plot of magnetometry, e.g. collected at Polis Chrysochous"
 git push origin master
