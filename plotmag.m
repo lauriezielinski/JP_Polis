@@ -1,7 +1,7 @@
 function varargout=plotmag(data,res,percs,deg,sofs)
 % Zmax=plotmag(data,res,percs,deg,sofs)
 %
-% Plots a data matrix containing magnetic field as an interpolated map
+% Plots a data matrix containing magnetic anomalies as an interpolated map
 %
 % INPUT:
 %
