@@ -6,6 +6,14 @@ git add polisgis.m
 git commit -m "Plots some features of Polis Chrysochous from certain GIS databases"
 git push origin master
 
+git add readmag.m
+git commit -m "Reads an ASCII file with GPS locations and magnetic data from MagMap2000"
+git push origin master
+
+git add polismag.m
+git commit -m "Makes a plot of magnetometry, e.g. collected at Polis Chrysochous"
+git push origin master
+
 git add README.md
 git commit -m "Read me first"
 git push origin master
