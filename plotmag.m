@@ -18,7 +18,7 @@ function varargout=plotmag(data,res,percs,deg,sofs)
 %
 % See also READMAG, PLOTSURVEY, POLISMAG
 %
-% Last modified by fjsimons-at-alum.mit.edu, 03/01/2019
+% Last modified by fjsimons-at-alum.mit.edu, 03/02/2019
 
 % Resolution parameter
 defval('res',50);
