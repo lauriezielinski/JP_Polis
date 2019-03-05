@@ -19,7 +19,7 @@ function polismag(dnums,fnums,popt,sstr)
 %% For all files in the Polis/Peristeres subdirectory
 % polismag(2,[],1)
 %
-% Last modified by fjsimons-at-alum.mit.edu, 03/01/2019
+% Last modified by fjsimons-at-alum.mit.edu, 03/02/2019
 
 % Set default values
 defval('popt',1)
@@ -79,7 +79,7 @@ for ondex=dnums
 	% Apply the offsets to the coordinates
 	data2=rearrange(data);
 	% This used to be plotdata2Dl
-	plotmag(data2,2,3)
+	plotmag(data2,2,[3 97])
 	tl=title(fname);
 	box on
        case 3
