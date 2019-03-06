@@ -1,4 +1,4 @@
-function polismag(dnums,fnums,popt,sstr)
+function polismag(dnums,fnums,popt,sstr,newopt)
 % POLISMAG(dnums,fnums,popt,sstr)
 %
 % Makes a plot of magnetometry, e.g. collected at Polis Chrysochous.
@@ -13,17 +13,20 @@ function polismag(dnums,fnums,popt,sstr)
 %          4 Plots the original LINES one by one (for prepping only)
 %          5 Plots the original POINTS one by one (for prepping only)
 % sstr     A search string applied to the directory [default: 'Polis']
+% newopt   1 Decides ahead of time on a large field of view
+%          0 Crops the coordinates
 %
 % EXAMPLE:
 %
 %% For all files in the Polis/Peristeres subdirectory
 % polismag(2,[],1)
 %
-% Last modified by fjsimons-at-alum.mit.edu, 03/02/2019
+% Last modified by fjsimons-at-alum.mit.edu, 03/05/2019
 
 % Set default values
 defval('popt',1)
 defval('sstr','Polis')
+defval('newopt',0)
 
 % Query all the directories in the pathname below
 try 
@@ -47,14 +50,14 @@ for ondex=dnums
   catch
     disp(sprintf(' '))
     ls(diros{ondex})
-    error(sprintf('\nThere appear to be no *.dat file in %s',diros{ondex}))
+    error(sprintf('\nThere appear to be no *.dat files in %s',diros{ondex}))
   end
 
   % Default is to do this for all available data
 
   % But not using defval since the loop will be messed up!
   defval('fnums',1:length(files))
-  
+
   % Loop over all the files
   for index=fnums
       % Locate the data
@@ -79,7 +82,13 @@ for ondex=dnums
 	% Apply the offsets to the coordinates
 	data2=rearrange(data);
 	% This used to be plotdata2Dl
-	plotmag(data2,2,[3 97])
+	[~,Z,X,Y,z,x,y,res,deg]=plotmag(data2,2,[3 97]);	
+	% Now I have access to all the data, and we will be saving it
+	sfile=fullfile(diros{ondex},pref(fname));
+
+	if exist([sfile '.mat'])~=2
+	  save(sfile,'Z','X','Y','z','x','y','res','deg')
+	end
 	tl=title(fname);
 	box on
        case 3
@@ -97,7 +106,7 @@ for ondex=dnums
 
       % You could plot this outline if you had it
       try
-	plotERT
+%	plotERT
       end
       
       % Cosmetics
@@ -108,6 +117,11 @@ for ondex=dnums
       fig2print(gcf,'landscape')
       % Watch the x/ylabel bug after SURF
       [xl,yl]=utmlabels('36 S');
+
+      if newopt==1
+	% Focus on Petrides
+	axis([.44823 .4485034062817501 3.87765 3.87787]*1e6)
+      end
 
       % Save this shit
       figna=figdisp([],sprintf('%i_%i_%i',ondex,index,popt),[],2);
