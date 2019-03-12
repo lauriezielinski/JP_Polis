@@ -1,5 +1,5 @@
 function varargout=plotmag(data,res,percs,deg,sofs)
-% Zmax=plotmag(data,res,percs,deg,sofs)
+% [Zmax,Z,X,Y,z,x,y,res,deg]=plotmag(data,res,percs,deg,sofs)
 %
 % Plots a data matrix containing magnetic anomalies as an interpolated map
 %
@@ -15,10 +15,14 @@ function varargout=plotmag(data,res,percs,deg,sofs)
 % OUTPUT:
 %
 % Zmax       Maximum of the data plotted (for overlays using PLOT3)
+% Z,X,Y      The interpolated data being plotted
+% z,x,y      The original data on which the interpolation was based
+% res        Inverse fraction of the data length used for interpolation
+% deg        Polynomial degree of what was fitted and removed
 %
 % See also READMAG, PLOTSURVEY, POLISMAG
 %
-% Last modified by fjsimons-at-alum.mit.edu, 03/02/2019
+% Last modified by fjsimons-at-alum.mit.edu, 03/05/2019
 
 % Resolution parameter
 defval('res',50);
@@ -35,14 +39,14 @@ defval('deg',1)
 % Geographic corner reference
 defval('sofs',0)
 
-% Remove some polynomials
+% Remove a two-dimensional polynomial trend
 data2=data;
 if deg>0
   disp(sprintf('Polynomials up to degree %i removed',deg))
   data2=removepoly(data,deg);
 end
 
-% Location
+% Geographical coordinates of the data
 x=data2(:,1);
 y=data2(:,2);
 % The magnetic data in the original unit 
@@ -116,6 +120,6 @@ set([xl yl tl ylcb],'FontSize',fs)
 figdisp([],[],[],0)
 
 % Output
-varns={Zmax};
+varns={Zmax,Z,X,Y,z,x,y,res,deg};
 varargout=varns(1:nargout);
 
