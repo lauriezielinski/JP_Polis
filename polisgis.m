@@ -25,9 +25,8 @@ defval('wot',1)
 defval('plt',0)
 
 % Set a path beyond which the code doesn't change
-try
-  pname='/u/fjsimons/CLASSES/FRS-Cyprus/dropbox-2011/Cyprus/CyprusGIS/webGIS/';
-catch
+pname='/u/fjsimons/CLASSES/FRS-Cyprus/dropbox-2011/Cyprus/CyprusGIS/webGIS/';
+if ~exist(pname)
   pname='/Users/Laurie/Documents/JP_Polis/Data';
 end
 
