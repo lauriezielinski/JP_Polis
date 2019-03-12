@@ -20,6 +20,7 @@ function polismag(dnums,fnums,popt,sstr)
 % polismag(2,[],1)
 %
 % Last modified by fjsimons-at-alum.mit.edu, 03/02/2019
+% Last modified by lauriez@princeton.edu, 03/08/2019
 
 % Set default values
 defval('popt',1)
@@ -27,13 +28,14 @@ defval('sstr','Polis')
 
 % Query all the directories in the pathname below
 try 
-  pname='/u/fjsimons/CLASSES/FRS-Cyprus/Magnetometry';
-catch
   pname='/Users/Laurie/Documents/JP_Polis/Data/';
+catch
+  pname='/u/fjsimons/CLASSES/FRS-Cyprus/Magnetometry';
 end
 
 % Find all the data directories inside the pathname above
 diros=ls2cell(fullfile(pname,sstr,'/'),1);
+
 
 % Default is to do this for all available directories inside those
 defval('dnums',1:length(diros))
